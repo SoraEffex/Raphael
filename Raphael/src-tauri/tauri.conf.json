@@ -1,0 +1,63 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Raphael",
+  "version": "0.1.0",
+  "identifier": "dev.raphael.desktopbridge",
+  "build": {
+    "frontendDist": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "title": "Raphael — AI Desktop Bridge",
+        "width": 920,
+        "height": 640,
+        "minWidth": 760,
+        "minHeight": 560,
+        "resizable": true,
+        "center": true,
+        "backgroundColor": "#111111"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self' asset: http://asset.localhost; img-src 'self' asset: http://asset.localhost data:; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; connect-src ipc: http://ipc.localhost http://127.0.0.1:* http://localhost:* https://*"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "nsis",
+      "msi"
+    ],
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "displayLanguageSelector": false,
+        "languages": [
+          "English"
+        ],
+        "installMode": "currentUser",
+        "installerIcon": "icons/icon.ico"
+      },
+      "wix": {
+        "language": "en-US"
+      }
+    },
+    "macOS": {
+      "dmg": {
+        "windowSize": {
+          "width": 540,
+          "height": 380
+        }
+      }
+    }
+  }
+}
